@@ -1,5 +1,7 @@
 # frozen_string_literal: true
 
+require 'redis'
+
 module Service
   module_function
 

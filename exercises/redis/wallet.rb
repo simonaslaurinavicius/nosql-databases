@@ -32,22 +32,20 @@ end
 def buy_crypto(user_id)
   token_price = BigDecimal(rand(1.5..3), 5)
 
-  tx_id, amount = build_transaction(user_id, token_price)
-  total_price = format('%.5f', (amount * token_price))
+  tx_id, tx_amount = build_transaction(user_id, token_price)
+  total_price = format('%.5f', (tx_amount * token_price))
 
   Service.redis.watch("#{user_id}_#{tx_id}_fixed_token_price")
 
-  if transaction_confirmed?(amount, total_price)
-    execute_transaction(user_id, tx_id, amount, total_price)
+  if transaction_confirmed?(tx_amount, total_price)
+    execute_transaction(user_id, tx_id, tx_amount, total_price)
   end
-
-  Service.redis.unwatch("#{user_id}_#{tx_id}_fixed_token_price")
 
   true
 rescue Redis::ConnectionError => e
   puts 'There as an error when buying cryptocurreny! ', e
 ensure
-  Service.redis.unwatch("#{user_id}_#{tx_id}_fixed_token_price")
+  Service.redis.unwatch
 end
 
 def build_transaction(user_id, token_price)
@@ -61,14 +59,17 @@ def build_transaction(user_id, token_price)
   [tx_id, amount]
 end
 
-def execute_transaction(user_id, tx_id, amount, total_price)
-  result = Service.redis.multi do |transcaction|
-    transcaction.hset("tx_#{tx_id}", { token: TOKEN_NAME, amount: amount })
-    transcaction.hmset("#{user_id}_wallet", 'amount', amount)
+def execute_transaction(user_id, tx_id, tx_amount, total_price)
+  old_amount = Service.redis.hget("#{user_id}_wallet", 'amount')
+  new_amount = Integer(old_amount) + tx_amount
+
+  result = Service.redis.multi do |transaction|
+    transaction.hset("tx_#{tx_id}", { token: TOKEN_NAME, amount: tx_amount })
+    transaction.hset("#{user_id}_wallet", 'amount', new_amount)
   end
 
   if result
-    puts "You've bought #{amount} of #{TOKEN_NAME} for #{total_price}"
+    puts "You've bought #{tx_amount} of #{TOKEN_NAME} for #{total_price}"
   else
     puts 'Transaction unsuccesful, token price expired! Please try again.'
   end
