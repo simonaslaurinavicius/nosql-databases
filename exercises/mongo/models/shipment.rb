@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require_relative 'address'
+require_relative 'carrier'
 
 module Shipment
   module_function
@@ -16,8 +17,8 @@ module Shipment
   def generate_lt_data(count)
     generate_data(
       count,
-      'Lietuvos Pastas',
-      %w[LP-LOCKER-S LP-LOCKER-M LP-LOCKER-L]
+      Carrier::Name::LIETUVOS_PASTAS,
+      Carrier::Rates::LIETUVOS_PASTAS
     )
   end
 
@@ -47,16 +48,16 @@ module Shipment
   def generate_de_data(count)
     generate_data(
       count,
-      'DHL',
-      %w[DHL-SHOP-S DHL-SHOP-M DHL-SHOP-L]
+      Carrier::Name::DHL,
+      Carrier::Rates::DHL
     )
   end
 
   def generate_us_data(count)
     generate_data(
       count,
-      'UPS',
-      %w[UPS-HOME-S UPS-HOME-M UPS-HOME-L]
+      Carrier::Name::UPS,
+      Carrier::Rates::UPS
     )
   end
 end

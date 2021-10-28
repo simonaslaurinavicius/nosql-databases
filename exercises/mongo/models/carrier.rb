@@ -17,6 +17,12 @@ module Carrier
     UPS = 'UPS'
   end
 
+  module Rates
+    LIETUVOS_PASTAS = %w[LP-LOCKER-S LP-LOCKER-M LP-LOCKER-L]
+    DHL = %w[DHL-SHOP-S DHL-SHOP-M DHL-SHOP-L]
+    UPS = %w[UPS-HOME-S UPS-HOME-M UPS-HOME-L]
+  end
+
   SAMPLE_DATA = [
     {
       _id: 1,
