@@ -1,16 +1,16 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-=begin
-  Entry point for toy crypto exchange program - solution to an
-  exercise designed to gain experience with key-value databases.
-
-  Author: Simonas Laurinavicius
-  Course: Non relational databases (NoSQL)
-  Study program, year, group: Informatics, 4, 1
-  Email: simonas.laurinavicius@mif.stud.vu.lt
-  Last updated: 2021-10-23
-=end
+#   Entry point for toy crypto exchange program - solution to an
+#   exercise designed to gain experience with key-value databases.
+#
+#   Database used - Redis
+#
+#   Author: Simonas Laurinavicius
+#   Course: Non relational databases (NoSQL)
+#   Study program, year, group: Informatics, 4, 1
+#   Email: simonas.laurinavicius@mif.stud.vu.lt
+#   Last updated: 2021-10-28
 
 require_relative 'entry'
 require_relative 'wallet'
