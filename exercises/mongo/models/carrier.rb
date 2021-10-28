@@ -23,6 +23,11 @@ module Carrier
     UPS = %w[UPS-HOME-S UPS-HOME-M UPS-HOME-L]
   end
 
+  module Currency
+    EUR = 'EUR'
+    USD = 'USD'
+  end
+
   SAMPLE_DATA = [
     {
       _id: 1,
@@ -34,7 +39,7 @@ module Carrier
           _id: 1,
           name: Rates::LIETUVOS_PASTAS[0],
           price: BSON::Decimal128.new('0.69'),
-          currency_code: 'EUR',
+          currency_code: Currency::EUR,
           service: Service::POINT_2_POINT,
           delivery_duration_in_days: {
             from: 1,
@@ -48,7 +53,7 @@ module Carrier
           _id: 2,
           name: Rates::LIETUVOS_PASTAS[1],
           price: BSON::Decimal128.new('1.55'),
-          currency_code: 'EUR',
+          currency_code: Currency::EUR,
           service: Service::POINT_2_POINT,
           delivery_duration_in_days: {
             from: 1,
@@ -62,7 +67,7 @@ module Carrier
           _id: 3,
           name: Rates::LIETUVOS_PASTAS[2],
           price: BSON::Decimal128.new('2.59'),
-          currency_code: 'EUR',
+          currency_code: Currency::EUR,
           service: Service::POINT_2_POINT,
           delivery_duration_in_days: {
             from: 1,
@@ -84,7 +89,7 @@ module Carrier
           _id: 4,
           name: Rates::DHL[0],
           price: BSON::Decimal128.new('4.89'),
-          currency_code: 'EUR',
+          currency_code: Currency::EUR,
           service: Service::SHOP_2_SHOP,
           delivery_duration_in_days: {
             from: 3,
@@ -97,7 +102,7 @@ module Carrier
           _id: 5,
           name: Rates::DHL[1],
           price: BSON::Decimal128.new('8.89'),
-          currency_code: 'EUR',
+          currency_code: Currency::EUR,
           service: Service::SHOP_2_SHOP,
           delivery_duration_in_days: {
             from: 3,
@@ -110,7 +115,7 @@ module Carrier
           _id: 6,
           name: Rates::DHL[2],
           price: BSON::Decimal128.new('12.89'),
-          currency_code: 'EUR',
+          currency_code: Currency::EUR,
           service: Service::SHOP_2_SHOP,
           delivery_duration_in_days: {
             from: 3,
@@ -131,7 +136,7 @@ module Carrier
           _id: 7,
           name: Rates::UPS[0],
           price: BSON::Decimal128.new('12.45'),
-          currency_code: 'USD',
+          currency_code: Currency::USD,
           service: Service::HOME_2_HOME,
           delivery_duration_in_days: {
             from: 2,
@@ -144,7 +149,7 @@ module Carrier
           _id: 8,
           name: Rates::UPS[1],
           price: BSON::Decimal128.new('17.45'),
-          currency_code: 'USD',
+          currency_code: Currency::USD,
           service: Service::HOME_2_HOME,
           delivery_duration_in_days: {
             from: 2,
@@ -157,7 +162,7 @@ module Carrier
           _id: 9,
           name: Rates::UPS[2],
           price: BSON::Decimal128.new('24.25'),
-          currency_code: 'USD',
+          currency_code: Currency::USD,
           service: Service::HOME_2_HOME,
           delivery_duration_in_days: {
             from: 2,
