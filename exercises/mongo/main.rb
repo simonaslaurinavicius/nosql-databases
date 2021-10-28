@@ -1,18 +1,16 @@
 #!/usr/bin/env ruby
 # frozen_string_literal: true
 
-=begin
-  Shipping carrier aggregator queries - solution to an
-  exercise designed to gain experience with document databases.
-
-  Database used - MongoDB
-
-  Author: Simonas Laurinavicius
-  Course: Non relational databases (NoSQL)
-  Study program, year, group: Informatics, 4, 1
-  Email: simonas.laurinavicius@mif.stud.vu.lt
-  Last updated: 2021-10-28
-=end
+#   Shipping carrier aggregator queries - solution to an
+#   exercise designed to gain experience with document databases.
+#
+#   Database used - MongoDB
+#
+#   Author: Simonas Laurinavicius
+#   Course: Non relational databases (NoSQL)
+#   Study program, year, group: Informatics, 4, 1
+#   Email: simonas.laurinavicius@mif.stud.vu.lt
+#   Last updated: 2021-10-28
 
 require 'mongo'
 
@@ -67,7 +65,7 @@ end
 def rate_shipment_count(carrier_name)
   map = 'function map() {  emit(this.carrier_rate_name, this._id) }'
   reduce = 'function reduce(key, values) { return values.length }'
-  query = { query: { carrier_name: 'UPS' } }
+  query = { query: { carrier_name: carrier_name } }
 
   shipments_view.map_reduce(map, reduce, query).each { |doc| puts doc }
 end
@@ -75,7 +73,6 @@ end
 def shipments_view
   Mongo::Collection::View.new(shipments)
 end
-
 
 find_rates
 aggregate_rates

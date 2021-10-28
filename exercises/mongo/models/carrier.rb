@@ -18,9 +18,9 @@ module Carrier
   end
 
   module Rates
-    LIETUVOS_PASTAS = %w[LP-LOCKER-S LP-LOCKER-M LP-LOCKER-L]
-    DHL = %w[DHL-SHOP-S DHL-SHOP-M DHL-SHOP-L]
-    UPS = %w[UPS-HOME-S UPS-HOME-M UPS-HOME-L]
+    LIETUVOS_PASTAS = %w[LP-LOCKER-S LP-LOCKER-M LP-LOCKER-L].freeze
+    DHL = %w[DHL-SHOP-S DHL-SHOP-M DHL-SHOP-L].freeze
+    UPS = %w[UPS-HOME-S UPS-HOME-M UPS-HOME-L].freeze
   end
 
   module Currency

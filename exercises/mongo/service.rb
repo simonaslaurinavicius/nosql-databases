@@ -11,7 +11,7 @@ module Service
 
   def mongo
     @mongo ||= Mongo::Client.new(
-      [ "#{MONGO_HOST}:#{MONGO_PORT}" ], :database => MONGO_DB
+      ["#{MONGO_HOST}:#{MONGO_PORT}"], database: MONGO_DB
     )
   end
 end

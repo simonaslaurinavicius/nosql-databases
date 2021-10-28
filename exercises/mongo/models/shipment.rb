@@ -10,7 +10,7 @@ module Shipment
     [
       generate_lt_data(count),
       generate_de_data(count),
-      generate_us_data(count),
+      generate_us_data(count)
     ].reduce([], :+)
   end
 
