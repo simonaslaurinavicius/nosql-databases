@@ -26,13 +26,13 @@ module Carrier
   SAMPLE_DATA = [
     {
       _id: 1,
-      name: 'Lietuvos Pastas',
+      name: Name::LIETUVOS_PASTAS,
       country_code: 'LT',
       website: 'https://lietuvospastas.lt',
       rates: [
         {
           _id: 1,
-          name: 'LP-LOCKER-S',
+          name: Rates::LIETUVOS_PASTAS[0],
           price: BSON::Decimal128.new('0.69'),
           currency_code: 'EUR',
           service: Service::POINT_2_POINT,
@@ -46,7 +46,7 @@ module Carrier
         },
         {
           _id: 2,
-          name: 'LP-LOCKER-M',
+          name: Rates::LIETUVOS_PASTAS[1],
           price: BSON::Decimal128.new('1.55'),
           currency_code: 'EUR',
           service: Service::POINT_2_POINT,
@@ -60,7 +60,7 @@ module Carrier
         },
         {
           _id: 3,
-          name: 'LP-LOCKER-L',
+          name: Rates::LIETUVOS_PASTAS[2],
           price: BSON::Decimal128.new('2.59'),
           currency_code: 'EUR',
           service: Service::POINT_2_POINT,
@@ -76,13 +76,13 @@ module Carrier
     },
     {
       _id: 2,
-      name: 'DHL',
+      name: Carrier::Name::DHL,
       country_code: 'DE',
       website: 'https://dhl.com',
       rates: [
         {
           _id: 4,
-          name: 'DHL-SHOP-S',
+          name: Rates::DHL[0],
           price: BSON::Decimal128.new('4.89'),
           currency_code: 'EUR',
           service: Service::SHOP_2_SHOP,
@@ -95,7 +95,7 @@ module Carrier
         },
         {
           _id: 5,
-          name: 'DHL-SHOP-M',
+          name: Rates::DHL[1],
           price: BSON::Decimal128.new('8.89'),
           currency_code: 'EUR',
           service: Service::SHOP_2_SHOP,
@@ -108,7 +108,7 @@ module Carrier
         },
         {
           _id: 6,
-          name: 'DHL-SHOP-L',
+          name: Rates::DHL[2],
           price: BSON::Decimal128.new('12.89'),
           currency_code: 'EUR',
           service: Service::SHOP_2_SHOP,
@@ -123,13 +123,13 @@ module Carrier
     },
     {
       _id: 3,
-      name: 'UPS',
+      name: Carrier::Name::UPS,
       country_code: 'US',
       website: 'https://ups.com',
       rates: [
         {
           _id: 7,
-          name: 'UPS-HOME-S',
+          name: Rates::UPS[0],
           price: BSON::Decimal128.new('12.45'),
           currency_code: 'USD',
           service: Service::HOME_2_HOME,
@@ -142,7 +142,7 @@ module Carrier
         },
         {
           _id: 8,
-          name: 'UPS-HOME-M',
+          name: Rates::UPS[1],
           price: BSON::Decimal128.new('17.45'),
           currency_code: 'USD',
           service: Service::HOME_2_HOME,
@@ -155,7 +155,7 @@ module Carrier
         },
         {
           _id: 9,
-          name: 'UPS-HOME-L',
+          name: Rates::UPS[2],
           price: BSON::Decimal128.new('24.25'),
           currency_code: 'USD',
           service: Service::HOME_2_HOME,
