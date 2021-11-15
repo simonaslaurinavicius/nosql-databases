@@ -1,0 +1,12 @@
+# frozen_string_literal: true
+
+require_relative 'create'
+require_relative 'seed'
+
+task :create do
+  create_db!
+end
+
+task :seed do
+  seed_db!
+end
