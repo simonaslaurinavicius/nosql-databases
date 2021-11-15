@@ -1,9 +1,9 @@
 # frozen_string_literal: true
 
-require_relative 'service'
-require_relative 'models/sensor'
-require_relative 'models/reading'
-require_relative 'models/alert'
+require_relative '../service'
+require_relative '../models/sensor'
+require_relative '../models/reading'
+require_relative '../models/alert'
 
 SENSOR_COUNT = 20
 READING_COUNT = 50

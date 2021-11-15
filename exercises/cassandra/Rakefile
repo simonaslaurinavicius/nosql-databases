@@ -1,12 +1,14 @@
 # frozen_string_literal: true
 
-require_relative 'create'
-require_relative 'seed'
+require_relative 'db/create'
+require_relative 'db/seed'
 
-task :create do
-  create_db!
-end
+namespace :db do
+  task :create do
+    create_db!
+  end
 
-task :seed do
-  seed_db!
+  task :seed do
+    seed_db!
+  end
 end
