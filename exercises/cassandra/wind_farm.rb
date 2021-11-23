@@ -3,7 +3,7 @@
 
 #   Simple program for a database containing sensor data from wind farm
 #   - solution to an exercise designed to gain
-#   experience with wide-column stoers.
+#   experience with wide-column stores.
 #
 #   Database used - Apache Casssamdra
 #
