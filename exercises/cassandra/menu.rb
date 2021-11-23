@@ -19,12 +19,12 @@ FARM_MESSAGE = <<~EOS
 EOS
 
 FARM_OPTIONS = {
-  '1' => method(:sensors_by_status),
-  '2' => method(:sensors_by_type),
-  '3' => method(:day_readings),
-  '4' => method(:monthly_alerts),
-  '5' => method(:insert_sensor),
-  '6' => proc { EXIT_COMMAND }
+  1 => method(:sensors_by_status),
+  2 => method(:sensors_by_type),
+  3 => method(:day_readings),
+  4 => method(:monthly_alerts),
+  5 => method(:insert_sensor),
+  6 => proc { EXIT_COMMAND }
 }.freeze
 
 OPTION_COUNT = (1..6).to_a
@@ -35,7 +35,7 @@ def execute_options
 
   loop do
     print 'Please choose an option number: '
-    option = gets.chomp
+    option = gets.chomp.to_i
     break if OPTION_COUNT.include? option
 
     puts 'Invalid options, try again!'

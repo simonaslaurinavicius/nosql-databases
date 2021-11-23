@@ -1,34 +1,34 @@
 @startuml
 left to right direction
-object sensors {
-  id : Integer
-  turbine_id : Integer
+map sensors {
+  PK_2 => id : Integer
+  PK_1 => turbine_id : Integer
 }
 
-object sensors_by_status {
-  id : Integer
-  turbine_id : Integer
-  status : Enum
+map sensors_by_status {
+  CK_2 => id : Integer
+  PK => turbine_id : Integer
+  CK_1 => status : Enum
 }
 
-object sensors_by_type {
-  id : Integer
-  turbine_id : Integer
-  type : Enum
+map sensors_by_type {
+  CK_2 => id : Integer
+  PK => turbine_id : Integer
+  CK_1 => type : Enum
 }
 
-object day_readings_by_sensor {
-  sensor_id : Integer
-  data : Float
-  day : Date
-  reading_at : Timestamp
+map day_readings_by_sensor {
+  PK_1 => sensor_id : Integer
+  FIELD => data : Float
+  PK_2 => day : Date
+  CK => reading_at : Timestamp
 }
 
-object month_alerts_by_sensor {
-  sensor_id : Integer
-  level : Enum
-  details : String
-  month : Date
-  alert_at : Timestamp
+map month_alerts_by_sensor {
+  PK_1 => sensor_id : Integer
+  FIELD_1 => level : Enum
+  FIELD_2 => details : String
+  PK_2 => month : Date
+  CK => alert_at : Timestamp
 }
 @enduml

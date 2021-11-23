@@ -11,7 +11,7 @@
 #   Course: Non relational databases (NoSQL)
 #   Study program, year, group: Informatics, 4, 1
 #   Email: simonas.laurinavicius@mif.stud.vu.lt
-#   Last updated: 2021-11-15
+#   Last updated: 2021-11-23
 
 require_relative 'menu'
 
